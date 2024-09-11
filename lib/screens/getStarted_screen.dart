@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:referral_app/screens/choose_startScreen.dart';
 
 class GetStartedScreen extends StatelessWidget {
   const GetStartedScreen({super.key});
@@ -60,7 +61,9 @@ class GetStartedScreen extends StatelessWidget {
           // Get Started button
           ElevatedButton(
             onPressed: () {
-              // Add your navigation functionality here
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => ChooseStartscreen(),
+              ));
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.blue, // Background color
@@ -68,13 +71,11 @@ class GetStartedScreen extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30), // Rounded corners
               ),
-              minimumSize: const Size(150, 50), // Button size
+              minimumSize: const Size(150, 50),
             ),
             child: const Text(
               'Get Started',
-              style: TextStyle(
-                color: Colors.white, // Text color
-              ),
+              style: TextStyle(color: Colors.white, fontSize: 15),
             ),
           ),
         ],
