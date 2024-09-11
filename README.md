@@ -1,16 +1,67 @@
-# referral_app
+# Referral App
 
-A new Flutter project.
+The **Referral App** is a Flutter-based application designed to facilitate referral programs for buyers and sellers. It provides functionality for managing referrals, tracking points, and generating QR codes, making it a versatile tool for various referral scenarios.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+### For Buyers
+- **Signup/Login:** Register and log in to the app.
+- **Referral Codes:** Enter and track referral codes.
+- **QR Code Scanning:** Scan QR codes to apply or share referrals.
+- **Points Tracking:** Monitor and manage referral points.
 
-A few resources to get you started if this is your first Flutter project:
+### For Sellers
+- **Referral Management:** Create and manage referral codes.
+- **Sales Tracking:** Track sales generated from referrals.
+- **QR Code Generation:** Generate QR codes for referral sharing.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Installation
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Prerequisites
+- Flutter SDK installed on your machine.
+- Compatible Dart SDK version
+- Kotlin v2.0.20
+
+### Steps
+
+1. **Clone the Repository**
+
+    ```bash
+    git clone https://github.com/yourusername/referral_app.git
+    cd referral_app
+    ```
+
+2. **Install Dependencies**
+
+    ```bash
+    flutter pub get
+    ```
+
+3. **Run the Application**
+
+    ```bash
+    flutter run
+    ```
+
+## Configuration
+
+1. **Local Properties**
+
+   Ensure that your `local.properties` file contains the correct path to your Flutter SDK:
+
+    ```properties
+    flutter.sdk=path/to/your/flutter/sdk
+    ```
+
+2. **Build Versions**
+
+   Update your build configurations if needed to match the latest SDK versions.
+
+## Contributing
+
+Feel free to open issues, submit pull requests, or provide feedback to help improve the app.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
