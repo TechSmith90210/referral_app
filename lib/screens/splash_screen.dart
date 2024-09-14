@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/fadeinTextWidget';
+import 'package:referral_app/widgets/fadeinTextWidget.dart';
 import 'getStarted_screen.dart';
 
 class SplashScreen extends StatelessWidget {

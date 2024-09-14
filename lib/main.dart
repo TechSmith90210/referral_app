@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'screens/splash_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ReferralApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class ReferralApp extends StatelessWidget {
+  const ReferralApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false, 
+      debugShowCheckedModeBanner: false,
       title: 'RefBuddy',
       theme: ThemeData(
         useMaterial3: true,
