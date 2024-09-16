@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:referral_app/screens/user_signupScreen.dart';
 
-class UserLogin extends StatelessWidget {
-  const UserLogin({super.key});
+class UserSignUpScreen extends StatelessWidget {
+  const UserSignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +17,7 @@ class UserLogin extends StatelessWidget {
                 height: 60,
               ),
               const Text(
-                "Welcome Back!",
+                "Sign Up",
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -52,11 +51,7 @@ class UserLogin extends StatelessWidget {
               ),
               Center(
                 child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => UserSignUpScreen(),
-                    ));
-                  },
+                  onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
                     shape: RoundedRectangleBorder(
@@ -64,7 +59,7 @@ class UserLogin extends StatelessWidget {
                     ),
                     minimumSize: const Size(400, 50),
                   ),
-                  child: const Text("Login",
+                  child: const Text("Send OTP",
                       style: TextStyle(color: Colors.white)),
                 ),
               ),
@@ -117,7 +112,7 @@ class UserLogin extends StatelessWidget {
                     style: OutlinedButton.styleFrom(
                         backgroundColor: Colors.black12),
                     child: const Text(
-                      "Login using Email",
+                      "Sign Up using Email",
                       style: TextStyle(color: Colors.black87),
                     ),
                   ),
@@ -131,7 +126,7 @@ class UserLogin extends StatelessWidget {
                 children: [
                   Text("Don't have an account?"),
                   Text(
-                    "Signup",
+                    "Email",
                     style: TextStyle(fontWeight: FontWeight.w500),
                   )
                 ],

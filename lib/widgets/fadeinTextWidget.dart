@@ -6,17 +6,18 @@ class FadeInText extends StatefulWidget {
   final Duration duration; // Duration of the animation
 
   const FadeInText({
-    Key? key,
+    super.key,
     required this.text,
     this.style,
     this.duration = const Duration(seconds: 2),
-  }) : super(key: key);
+  });
 
   @override
   _FadeInTextState createState() => _FadeInTextState();
 }
 
-class _FadeInTextState extends State<FadeInText> with SingleTickerProviderStateMixin {
+class _FadeInTextState extends State<FadeInText>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
 
