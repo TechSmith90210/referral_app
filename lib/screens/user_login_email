@@ -1,10 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:referral_app/screens/user_login_email';
 import 'package:referral_app/screens/user_signupScreen.dart';
 
-class UserLogin extends StatelessWidget {
-  const UserLogin({super.key});
+class UserLoginEmail extends StatelessWidget {
+  const UserLoginEmail({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +28,7 @@ class UserLogin extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              const Text("Enter your phone number"),
+              const Text("Enter Email"),
               const SizedBox(
                 height: 8,
               ),
@@ -38,7 +37,7 @@ class UserLogin extends StatelessWidget {
                 child: Column(
                   children: [
                     TextFormField(
-                      keyboardType: TextInputType.phone,
+                      keyboardType:TextInputType.emailAddress,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                       ),
@@ -114,15 +113,11 @@ class UserLogin extends StatelessWidget {
                 child: SizedBox(
                   width: 500,
                   child: OutlinedButton(
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => UserLoginEmail(),
-                      ));
-                    },
+                    onPressed: () {},
                     style: OutlinedButton.styleFrom(
                         backgroundColor: Colors.black12),
                     child: const Text(
-                      "Login using Email",
+                      "Login using Phone Number",
                       style: TextStyle(color: Colors.black87),
                     ),
                   ),

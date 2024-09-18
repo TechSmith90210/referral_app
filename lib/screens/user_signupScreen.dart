@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:referral_app/screens/user_login.dart';
 
 class UserSignUpScreen extends StatelessWidget {
   const UserSignUpScreen({super.key});
@@ -121,16 +123,27 @@ class UserSignUpScreen extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Don't have an account?"),
-                  Text(
-                    "Email",
-                    style: TextStyle(fontWeight: FontWeight.w500),
-                  )
-                ],
-              ),
+              Center(
+                child: RichText(
+                    text: TextSpan(
+                        style: TextStyle(
+                          color: Colors.black87,
+                        ),
+                        children: [
+                      const TextSpan(text: "Already have an account?"),
+                      TextSpan(
+                          text: "Login",
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.underline),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => UserLogin(),
+                              ));
+                            })
+                    ])),
+              )
             ],
           ),
         ),
