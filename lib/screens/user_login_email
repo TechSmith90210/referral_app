@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:referral_app/screens/user_signupScreen.dart';
+import 'package:referral_app/screens/user_signupemail.dart';
 
 class UserLoginEmail extends StatelessWidget {
   const UserLoginEmail({super.key});
@@ -142,7 +142,7 @@ class UserLoginEmail extends StatelessWidget {
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => UserSignUpScreen(),
+                                builder: (context) => UserSignUpEmailScreen(),
                               ));
                             })
                     ])),

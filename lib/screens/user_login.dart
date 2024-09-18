@@ -43,7 +43,9 @@ class UserLogin extends StatelessWidget {
                         border: OutlineInputBorder(),
                       ),
                       validator: (value) {
-                        return value!.isEmpty ? "Please enter email" : null;
+                        return value!.isEmpty
+                            ? "Please enter phone number"
+                            : null;
                       },
                     )
                   ],
