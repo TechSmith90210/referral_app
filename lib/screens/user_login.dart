@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:referral_app/screens/user_login_email';
+import 'package:referral_app/screens/user_otp_phone.dart';
 import 'package:referral_app/screens/user_signupScreen.dart';
 
 class UserLogin extends StatelessWidget {
@@ -56,7 +57,10 @@ class UserLogin extends StatelessWidget {
               ),
               Center(
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => UserOtpPhoneScreen()));
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
                     shape: RoundedRectangleBorder(
