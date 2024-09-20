@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:referral_app/screens/user_login_email';
-import 'package:referral_app/screens/user_otp_phone.dart';
+import 'package:referral_app/screens/user_login_email.dart';
+import 'package:referral_app/screens/user_otp_verfication.dart';
 import 'package:referral_app/screens/user_signupScreen.dart';
 
 class UserLogin extends StatelessWidget {
@@ -59,7 +59,7 @@ class UserLogin extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => UserOtpPhoneScreen()));
+                        builder: (context) => UserOtpVerificationScreen()));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
@@ -86,26 +86,26 @@ class UserLogin extends StatelessWidget {
               Align(
                 alignment: FractionalOffset.topCenter,
                 child: SizedBox(
-                  width: 200,
+                  width: 170,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SizedBox(
-                          width: 30,
-                          height: 30,
+                          width: 29,
+                          height: 29,
                           child: InkWell(
                               onTap: () {},
                               child: Image.asset('assets/instagram.jpeg'))),
                       SizedBox(
-                          width: 30,
-                          height: 30,
+                          width: 29,
+                          height: 29,
                           child: InkWell(
                               onTap: () {},
                               child: Image.asset('assets/xnew.png'))),
                       SizedBox(
-                          width: 30,
-                          height: 30,
+                          width: 29,
+                          height: 29,
                           child: InkWell(
                               onTap: () {},
                               child: Image.asset('assets/Facebook.png'))),

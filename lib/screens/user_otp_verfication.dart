@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class UserOtpPhoneScreen extends StatelessWidget {
-  const UserOtpPhoneScreen({super.key});
+class UserOtpVerificationScreen extends StatelessWidget {
+  const UserOtpVerificationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:referral_app/screens/user_signupemail.dart';
+import 'package:referral_app/screens/user_emailverification.dart';
 import 'package:referral_app/screens/user_login.dart';
+import 'package:referral_app/screens/user_signupemail.dart';
 
 class UserLoginEmail extends StatelessWidget {
   const UserLoginEmail({super.key});
@@ -38,7 +39,7 @@ class UserLoginEmail extends StatelessWidget {
                 child: Column(
                   children: [
                     TextFormField(
-                      keyboardType:TextInputType.emailAddress,
+                      keyboardType: TextInputType.emailAddress,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                       ),
@@ -54,7 +55,10 @@ class UserLoginEmail extends StatelessWidget {
               ),
               Center(
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => UserEmailVerificationScreen()));
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
                     shape: RoundedRectangleBorder(
@@ -80,26 +84,26 @@ class UserLoginEmail extends StatelessWidget {
               Align(
                 alignment: FractionalOffset.topCenter,
                 child: SizedBox(
-                  width: 200,
+                  width: 170,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SizedBox(
-                          width: 30,
-                          height: 30,
+                          width: 29,
+                          height: 29,
                           child: InkWell(
                               onTap: () {},
                               child: Image.asset('assets/instagram.jpeg'))),
                       SizedBox(
-                          width: 30,
-                          height: 30,
+                          width: 29,
+                          height: 29,
                           child: InkWell(
                               onTap: () {},
                               child: Image.asset('assets/xnew.png'))),
                       SizedBox(
-                          width: 30,
-                          height: 30,
+                          width: 29,
+                          height: 29,
                           child: InkWell(
                               onTap: () {},
                               child: Image.asset('assets/Facebook.png'))),
@@ -116,8 +120,8 @@ class UserLoginEmail extends StatelessWidget {
                   child: OutlinedButton(
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => UserLogin(),
-                    ));
+                        builder: (context) => UserLogin(),
+                      ));
                     },
                     style: OutlinedButton.styleFrom(
                         backgroundColor: Colors.black12),
@@ -129,7 +133,7 @@ class UserLoginEmail extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 30,
+                height: 40,
               ),
               Center(
                 child: RichText(

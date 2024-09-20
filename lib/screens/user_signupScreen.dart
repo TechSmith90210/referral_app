@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:referral_app/screens/user_login.dart';
+import 'package:referral_app/screens/user_signupemail.dart';
 
 class UserSignUpScreen extends StatelessWidget {
   const UserSignUpScreen({super.key});
@@ -79,24 +80,24 @@ class UserSignUpScreen extends StatelessWidget {
               Align(
                 alignment: FractionalOffset.topCenter,
                 child: SizedBox(
-                  width: 200,
+                  width: 170,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SizedBox(
-                          width: 30,
-                          height: 30,
+                          width: 27,
+                          height: 27,
                           child: InkWell(
                               child: Image.asset('assets/instagram.jpeg'))),
                       SizedBox(
-                          width: 30,
-                          height: 30,
+                          width: 27,
+                          height: 27,
                           child:
                               InkWell(child: Image.asset('assets/xnew.png'))),
                       SizedBox(
-                          width: 30,
-                          height: 30,
+                          width: 27,
+                          height: 27,
                           child: InkWell(
                               child: Image.asset('assets/Facebook.png'))),
                     ],
@@ -110,7 +111,10 @@ class UserSignUpScreen extends StatelessWidget {
                 child: SizedBox(
                   width: 500,
                   child: OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => UserSignUpEmailScreen()));
+                    },
                     style: OutlinedButton.styleFrom(
                         backgroundColor: Colors.black12),
                     child: const Text(
