@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:referral_app/screens/business_registration_contact_screen.dart';
 
 enum Categories {
   entertainment('Entertainment', 'entertainment'),
@@ -14,16 +15,9 @@ enum Categories {
   final String value;
 }
 
-class BusinessRegistrationDetailsScreen extends StatefulWidget {
+class BusinessRegistrationDetailsScreen extends StatelessWidget {
   const BusinessRegistrationDetailsScreen({super.key});
 
-  @override
-  State<BusinessRegistrationDetailsScreen> createState() =>
-      _BusinessRegistrationDetailsScreenState();
-}
-
-class _BusinessRegistrationDetailsScreenState
-    extends State<BusinessRegistrationDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +41,7 @@ class _BusinessRegistrationDetailsScreenState
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 15,
             ),
             Form(
                 child: Center(
@@ -202,7 +196,13 @@ class _BusinessRegistrationDetailsScreenState
             ),
             Center(
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              BusinessRegistrationContactScreen()));
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
                   shape: RoundedRectangleBorder(
