@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:referral_app/screens/business_login_screen.dart';
+import 'package:referral_app/screens/business_registration_details_screen.dart';
 
 class BusinessGetStartedScreen extends StatelessWidget {
   const BusinessGetStartedScreen({super.key});
@@ -76,7 +77,14 @@ class BusinessGetStartedScreen extends StatelessWidget {
                 ),
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            BusinessRegistrationDetailsScreen(),
+                      ));
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
@@ -85,8 +93,7 @@ class BusinessGetStartedScreen extends StatelessWidget {
                   minimumSize: const Size(150, 50),
                 ),
                 child: Text(
-                  // Adjusted button text
-                  'Sign Up',
+                  'Register',
                   style: const TextStyle(color: Colors.black, fontSize: 15),
                 ),
               ),

@@ -1,7 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:referral_app/screens/user_login.dart';
-import 'package:sign_in_button/sign_in_button.dart';
 
 class UserSignUpEmailScreen extends StatelessWidget {
   const UserSignUpEmailScreen({super.key});
