@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:referral_app/screens/business_login_screen.dart';
-import 'package:referral_app/screens/business_registration_details_screen.dart';
+import 'package:referral_app/screens/business_registration_account_screen.dart';
 
 class BusinessGetStartedScreen extends StatelessWidget {
   const BusinessGetStartedScreen({super.key});
@@ -82,7 +82,7 @@ class BusinessGetStartedScreen extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            BusinessRegistrationDetailsScreen(),
+                            BusinessRegistrationAccountScreen(),
                       ));
                 },
                 style: ElevatedButton.styleFrom(
@@ -110,36 +110,35 @@ class BusinessGetStartedScreen extends StatelessWidget {
           SizedBox(
             height: 23,
           ),
-          SizedBox(
-            height: 35,
-            width: 155,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Container(
-                  height: 35,
-                  width: 35,
-                  decoration: BoxDecoration(
-                      color: Colors.black12,
-                      borderRadius: BorderRadius.circular(30)),
-                ),
-                Container(
-                  height: 35,
-                  width: 35,
-                  decoration: BoxDecoration(
-                      color: Colors.black12,
-                      borderRadius: BorderRadius.circular(30)),
-                ),
-                Container(
-                  height: 35,
-                  width: 35,
-                  decoration: BoxDecoration(
-                      color: Colors.black12,
-                      borderRadius: BorderRadius.circular(30)),
-                ),
-              ],
+          Align(
+            alignment: FractionalOffset.topCenter,
+            child: SizedBox(
+              width: 170,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                      width: 29,
+                      height: 29,
+                      child: InkWell(
+                          onTap: () {},
+                          child: Image.asset('assets/instagram.jpeg'))),
+                  SizedBox(
+                      width: 29,
+                      height: 29,
+                      child: InkWell(
+                          onTap: () {}, child: Image.asset('assets/xnew.png'))),
+                  SizedBox(
+                      width: 29,
+                      height: 29,
+                      child: InkWell(
+                          onTap: () {},
+                          child: Image.asset('assets/Facebook.png'))),
+                ],
+              ),
             ),
-          )
+          ),
         ],
       ),
     );

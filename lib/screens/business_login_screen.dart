@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:referral_app/screens/business_registration_account_screen.dart';
 
 class BusinessLoginScreen extends StatelessWidget {
   const BusinessLoginScreen({super.key});
@@ -139,7 +140,14 @@ class BusinessLoginScreen extends StatelessWidget {
                                 decoration: TextDecoration.underline,
                               ),
                               recognizer: TapGestureRecognizer()
-                                ..onTap = () {}),
+                                ..onTap = () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            BusinessRegistrationAccountScreen(),
+                                      ));
+                                }),
                         ]),
                   ),
                 )
