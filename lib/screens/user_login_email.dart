@@ -4,6 +4,8 @@ import 'package:referral_app/screens/user_emailverification.dart';
 import 'package:referral_app/screens/user_login.dart';
 import 'package:referral_app/screens/user_signupemail.dart';
 
+final _loginformKey = GlobalKey<FormState>();
+
 class UserLoginEmail extends StatelessWidget {
   const UserLoginEmail({super.key});
 
@@ -35,29 +37,36 @@ class UserLoginEmail extends StatelessWidget {
                 height: 8,
               ),
               Form(
+                  key: _loginformKey,
                   child: Center(
-                child: Column(
-                  children: [
-                    TextFormField(
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                      ),
-                      validator: (value) {
-                        return value!.isEmpty ? "Please enter email" : null;
-                      },
-                    )
-                  ],
-                ),
-              )),
+                    child: Column(
+                      children: [
+                        TextFormField(
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Enter email';
+                            } else {
+                              return null;
+                            }
+                          },
+                        )
+                      ],
+                    ),
+                  )),
               const SizedBox(
                 height: 30,
               ),
               Center(
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => UserEmailVerificationScreen()));
+                    if (_loginformKey.currentState!.validate()) {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => UserEmailVerificationScreen()));
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
@@ -120,7 +129,7 @@ class UserLoginEmail extends StatelessWidget {
                   child: OutlinedButton(
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => UserLogin(),
+                        builder: (context) => const UserLogin(),
                       ));
                     },
                     style: OutlinedButton.styleFrom(

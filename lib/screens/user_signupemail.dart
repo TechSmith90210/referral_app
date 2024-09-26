@@ -1,7 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:referral_app/screens/user_emailverification.dart';
 import 'package:referral_app/screens/user_login.dart';
-import 'package:sign_in_button/sign_in_button.dart';
+
+final _signupEmailFormKey = GlobalKey<FormState>();
 
 class UserSignUpEmailScreen extends StatelessWidget {
   const UserSignUpEmailScreen({super.key});
@@ -40,7 +42,7 @@ class UserSignUpEmailScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
+                        SizedBox(
                             width: 40,
                             height: 40,
                             child: Image.asset('assets/google.png')),
@@ -55,8 +57,8 @@ class UserSignUpEmailScreen extends StatelessWidget {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
+                  children: const [
+                    SizedBox(
                       width: 130,
                       child: Divider(
                         color: Colors.black,
@@ -70,7 +72,7 @@ class UserSignUpEmailScreen extends StatelessWidget {
                     SizedBox(
                       width: 10,
                     ),
-                    Container(
+                    SizedBox(
                       width: 130,
                       child: Divider(
                         color: Colors.black,
@@ -87,51 +89,54 @@ class UserSignUpEmailScreen extends StatelessWidget {
                   height: 8,
                 ),
                 Form(
-                    child: Center(
+                  key: _signupEmailFormKey,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      TextFormField(
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
+                      Center(
+                        child: TextFormField(
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Enter Email';
+                            } else {
+                              return null;
+                            }
+                          },
                         ),
-                        validator: (value) {
-                          return value!.isEmpty ? "Please enter email" : null;
-                        },
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const Text("Enter password"),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      Center(
+                        child: TextFormField(
+                          keyboardType: TextInputType.visiblePassword,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                          ),
+                          validator: (password) {
+                            if (password == null || password.isEmpty) {
+                              return 'Enter password';
+                            } else {
+                              return null;
+                            }
+                          },
+                        ),
                       )
                     ],
-                  ),
-                )),
-                const SizedBox(
-                  height: 20,
-                ),
-                const Text("Enter password"),
-                const SizedBox(
-                  height: 8,
-                ),
-                TextFormField(
-                  keyboardType: TextInputType.visiblePassword,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
                   ),
                 ),
                 const SizedBox(
                   height: 30,
                 ),
-                Center(
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(7),
-                      ),
-                      minimumSize: const Size(400, 50),
-                    ),
-                    child: const Text("Submit",
-                        style: TextStyle(color: Colors.white)),
-                  ),
-                ),
+                Center(child: SubmitButton()),
                 const SizedBox(
                   height: 40,
                 ),
@@ -164,6 +169,31 @@ class UserSignUpEmailScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+//Submit Button
+class SubmitButton extends StatelessWidget {
+  const SubmitButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        if (_signupEmailFormKey.currentState!.validate()) {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => UserEmailVerificationScreen()));
+        }
+      },
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.blue,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(7),
+        ),
+        minimumSize: const Size(400, 50),
+      ),
+      child: const Text("Submit", style: TextStyle(color: Colors.white)),
     );
   }
 }

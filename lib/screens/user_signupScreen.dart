@@ -1,7 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:referral_app/screens/user_login.dart';
+import 'package:referral_app/screens/user_otp_verfication.dart';
 import 'package:referral_app/screens/user_signupemail.dart';
+
+final _signupformKey = GlobalKey<FormState>();
 
 class UserSignUpScreen extends StatelessWidget {
   const UserSignUpScreen({super.key});
@@ -34,27 +37,37 @@ class UserSignUpScreen extends StatelessWidget {
                 height: 8,
               ),
               Form(
+                  key: _signupformKey,
                   child: Center(
-                child: Column(
-                  children: [
-                    TextFormField(
-                      keyboardType: TextInputType.phone,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                      ),
-                      validator: (value) {
-                        return value!.isEmpty ? "Please enter email" : null;
-                      },
-                    )
-                  ],
-                ),
-              )),
+                    child: Column(
+                      children: [
+                        TextFormField(
+                          keyboardType: TextInputType.phone,
+                          decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Enter Phone Number';
+                            } else {
+                              return null;
+                            }
+                          },
+                        )
+                      ],
+                    ),
+                  )),
               const SizedBox(
                 height: 30,
               ),
               Center(
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    if (_signupformKey.currentState!.validate()) {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => UserOtpVerificationScreen()));
+                    }
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
                     shape: RoundedRectangleBorder(

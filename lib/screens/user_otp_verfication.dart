@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:referral_app/screens/user_profile_setup.dart';
 
 class UserOtpVerificationScreen extends StatelessWidget {
   const UserOtpVerificationScreen({super.key});
@@ -93,7 +94,15 @@ class UserOtpVerificationScreen extends StatelessWidget {
               ),
               Center(
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    try {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => UserProfileSetup()));
+                    } catch (e) {
+                      // ignore: avoid_print
+                      print(e);
+                    }
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
                     shape: RoundedRectangleBorder(

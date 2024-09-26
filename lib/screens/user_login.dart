@@ -4,6 +4,8 @@ import 'package:referral_app/screens/user_login_email.dart';
 import 'package:referral_app/screens/user_otp_verfication.dart';
 import 'package:referral_app/screens/user_signupScreen.dart';
 
+final _loginEmailformKey = GlobalKey<FormState>();
+
 class UserLogin extends StatelessWidget {
   const UserLogin({super.key});
 
@@ -35,31 +37,36 @@ class UserLogin extends StatelessWidget {
                 height: 8,
               ),
               Form(
+                  key: _loginEmailformKey,
                   child: Center(
-                child: Column(
-                  children: [
-                    TextFormField(
-                      keyboardType: TextInputType.phone,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                      ),
-                      validator: (value) {
-                        return value!.isEmpty
-                            ? "Please enter phone number"
-                            : null;
-                      },
-                    )
-                  ],
-                ),
-              )),
+                    child: Column(
+                      children: [
+                        TextFormField(
+                          keyboardType: TextInputType.phone,
+                          decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Enter Phone Number';
+                            } else {
+                              return null;
+                            }
+                          },
+                        )
+                      ],
+                    ),
+                  )),
               const SizedBox(
                 height: 30,
               ),
               Center(
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => UserOtpVerificationScreen()));
+                    if (_loginEmailformKey.currentState!.validate()) {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => UserOtpVerificationScreen()));
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
