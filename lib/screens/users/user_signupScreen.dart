@@ -1,13 +1,13 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:referral_app/screens/user_login_email.dart';
-import 'package:referral_app/screens/user_otp_verfication.dart';
-import 'package:referral_app/screens/user_signupScreen.dart';
+import 'package:referral_app/screens/users/user_login.dart';
+import 'package:referral_app/screens/users/user_otp_verfication.dart';
+import 'package:referral_app/screens/users/user_signupemail.dart';
 
-final _loginEmailformKey = GlobalKey<FormState>();
+final _signupformKey = GlobalKey<FormState>();
 
-class UserLogin extends StatelessWidget {
-  const UserLogin({super.key});
+class UserSignUpScreen extends StatelessWidget {
+  const UserSignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class UserLogin extends StatelessWidget {
                 height: 60,
               ),
               const Text(
-                "Welcome Back!",
+                "Sign Up",
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -37,7 +37,7 @@ class UserLogin extends StatelessWidget {
                 height: 8,
               ),
               Form(
-                  key: _loginEmailformKey,
+                  key: _signupformKey,
                   child: Center(
                     child: Column(
                       children: [
@@ -63,7 +63,7 @@ class UserLogin extends StatelessWidget {
               Center(
                 child: ElevatedButton(
                   onPressed: () {
-                    if (_loginEmailformKey.currentState!.validate()) {
+                    if (_signupformKey.currentState!.validate()) {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => UserOtpVerificationScreen()));
                     }
@@ -75,7 +75,7 @@ class UserLogin extends StatelessWidget {
                     ),
                     minimumSize: const Size(400, 50),
                   ),
-                  child: const Text("Login",
+                  child: const Text("Send OTP",
                       style: TextStyle(color: Colors.white)),
                 ),
               ),
@@ -99,22 +99,19 @@ class UserLogin extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SizedBox(
-                          width: 29,
-                          height: 29,
+                          width: 27,
+                          height: 27,
                           child: InkWell(
-                              onTap: () {},
                               child: Image.asset('assets/instagram.jpeg'))),
                       SizedBox(
-                          width: 29,
-                          height: 29,
-                          child: InkWell(
-                              onTap: () {},
-                              child: Image.asset('assets/xnew.png'))),
+                          width: 27,
+                          height: 27,
+                          child:
+                              InkWell(child: Image.asset('assets/xnew.png'))),
                       SizedBox(
-                          width: 29,
-                          height: 29,
+                          width: 27,
+                          height: 27,
                           child: InkWell(
-                              onTap: () {},
                               child: Image.asset('assets/Facebook.png'))),
                     ],
                   ),
@@ -129,13 +126,12 @@ class UserLogin extends StatelessWidget {
                   child: OutlinedButton(
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => UserLoginEmail(),
-                      ));
+                          builder: (context) => UserSignUpEmailScreen()));
                     },
                     style: OutlinedButton.styleFrom(
                         backgroundColor: Colors.black12),
                     child: const Text(
-                      "Login using Email",
+                      "Sign Up using Email",
                       style: TextStyle(color: Colors.black87),
                     ),
                   ),
@@ -151,16 +147,16 @@ class UserLogin extends StatelessWidget {
                           color: Colors.black87,
                         ),
                         children: [
-                      const TextSpan(text: "Don't have an account?"),
+                      const TextSpan(text: "Already have an account?"),
                       TextSpan(
-                          text: "Signup",
+                          text: "Login",
                           style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               decoration: TextDecoration.underline),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => UserSignUpScreen(),
+                                builder: (context) => UserLogin(),
                               ));
                             })
                     ])),

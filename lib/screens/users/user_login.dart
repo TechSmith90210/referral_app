@@ -1,18 +1,29 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:referral_app/screens/user_emailverification.dart';
-import 'package:referral_app/screens/user_login.dart';
-import 'package:referral_app/screens/user_signupemail.dart';
+import 'package:referral_app/screens/users/user_get_started_screen.dart';
+import 'package:referral_app/screens/users/user_login_email.dart';
+import 'package:referral_app/screens/users/user_otp_verfication.dart';
+import 'package:referral_app/screens/users/user_signupScreen.dart';
 
-final _loginformKey = GlobalKey<FormState>();
+final _loginEmailformKey = GlobalKey<FormState>();
 
-class UserLoginEmail extends StatelessWidget {
-  const UserLoginEmail({super.key});
+class UserLogin extends StatelessWidget {
+  const UserLogin({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => UserGetStartedScreen(),
+                  ));
+            },
+            icon: Icon(Icons.arrow_back)),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(30.0),
         child: SingleChildScrollView(
@@ -32,23 +43,23 @@ class UserLoginEmail extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              const Text("Enter Email"),
+              const Text("Enter your phone number"),
               const SizedBox(
                 height: 8,
               ),
               Form(
-                  key: _loginformKey,
+                  key: _loginEmailformKey,
                   child: Center(
                     child: Column(
                       children: [
                         TextFormField(
-                          keyboardType: TextInputType.emailAddress,
+                          keyboardType: TextInputType.phone,
                           decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Enter email';
+                              return 'Enter Phone Number';
                             } else {
                               return null;
                             }
@@ -63,9 +74,9 @@ class UserLoginEmail extends StatelessWidget {
               Center(
                 child: ElevatedButton(
                   onPressed: () {
-                    if (_loginformKey.currentState!.validate()) {
+                    if (_loginEmailformKey.currentState!.validate()) {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => UserEmailVerificationScreen()));
+                          builder: (context) => UserOtpVerificationScreen()));
                     }
                   },
                   style: ElevatedButton.styleFrom(
@@ -128,21 +139,21 @@ class UserLoginEmail extends StatelessWidget {
                   width: 500,
                   child: OutlinedButton(
                     onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const UserLogin(),
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => UserLoginEmail(),
                       ));
                     },
                     style: OutlinedButton.styleFrom(
                         backgroundColor: Colors.black12),
                     child: const Text(
-                      "Login using Phone Number",
+                      "Login using Email",
                       style: TextStyle(color: Colors.black87),
                     ),
                   ),
                 ),
               ),
               const SizedBox(
-                height: 40,
+                height: 30,
               ),
               Center(
                 child: RichText(
@@ -159,8 +170,9 @@ class UserLoginEmail extends StatelessWidget {
                               decoration: TextDecoration.underline),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => UserSignUpEmailScreen(),
+                              Navigator.of(context)
+                                  .pushReplacement(MaterialPageRoute(
+                                builder: (context) => UserSignUpScreen(),
                               ));
                             })
                     ])),

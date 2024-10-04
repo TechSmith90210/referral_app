@@ -1,13 +1,13 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:referral_app/screens/user_login.dart';
-import 'package:referral_app/screens/user_otp_verfication.dart';
-import 'package:referral_app/screens/user_signupemail.dart';
+import 'package:referral_app/screens/users/user_emailverification.dart';
+import 'package:referral_app/screens/users/user_login.dart';
+import 'package:referral_app/screens/users/user_signupemail.dart';
 
-final _signupformKey = GlobalKey<FormState>();
+final _loginformKey = GlobalKey<FormState>();
 
-class UserSignUpScreen extends StatelessWidget {
-  const UserSignUpScreen({super.key});
+class UserLoginEmail extends StatelessWidget {
+  const UserLoginEmail({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class UserSignUpScreen extends StatelessWidget {
                 height: 60,
               ),
               const Text(
-                "Sign Up",
+                "Welcome Back!",
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -32,23 +32,23 @@ class UserSignUpScreen extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              const Text("Enter your phone number"),
+              const Text("Enter Email"),
               const SizedBox(
                 height: 8,
               ),
               Form(
-                  key: _signupformKey,
+                  key: _loginformKey,
                   child: Center(
                     child: Column(
                       children: [
                         TextFormField(
-                          keyboardType: TextInputType.phone,
+                          keyboardType: TextInputType.emailAddress,
                           decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Enter Phone Number';
+                              return 'Enter email';
                             } else {
                               return null;
                             }
@@ -63,9 +63,9 @@ class UserSignUpScreen extends StatelessWidget {
               Center(
                 child: ElevatedButton(
                   onPressed: () {
-                    if (_signupformKey.currentState!.validate()) {
+                    if (_loginformKey.currentState!.validate()) {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => UserOtpVerificationScreen()));
+                          builder: (context) => UserEmailVerificationScreen()));
                     }
                   },
                   style: ElevatedButton.styleFrom(
@@ -75,7 +75,7 @@ class UserSignUpScreen extends StatelessWidget {
                     ),
                     minimumSize: const Size(400, 50),
                   ),
-                  child: const Text("Send OTP",
+                  child: const Text("Login",
                       style: TextStyle(color: Colors.white)),
                 ),
               ),
@@ -99,19 +99,22 @@ class UserSignUpScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SizedBox(
-                          width: 27,
-                          height: 27,
+                          width: 29,
+                          height: 29,
                           child: InkWell(
+                              onTap: () {},
                               child: Image.asset('assets/instagram.jpeg'))),
                       SizedBox(
-                          width: 27,
-                          height: 27,
-                          child:
-                              InkWell(child: Image.asset('assets/xnew.png'))),
-                      SizedBox(
-                          width: 27,
-                          height: 27,
+                          width: 29,
+                          height: 29,
                           child: InkWell(
+                              onTap: () {},
+                              child: Image.asset('assets/xnew.png'))),
+                      SizedBox(
+                          width: 29,
+                          height: 29,
+                          child: InkWell(
+                              onTap: () {},
                               child: Image.asset('assets/Facebook.png'))),
                     ],
                   ),
@@ -125,20 +128,21 @@ class UserSignUpScreen extends StatelessWidget {
                   width: 500,
                   child: OutlinedButton(
                     onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => UserSignUpEmailScreen()));
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => const UserLogin(),
+                      ));
                     },
                     style: OutlinedButton.styleFrom(
                         backgroundColor: Colors.black12),
                     child: const Text(
-                      "Sign Up using Email",
+                      "Login using Phone Number",
                       style: TextStyle(color: Colors.black87),
                     ),
                   ),
                 ),
               ),
               const SizedBox(
-                height: 30,
+                height: 40,
               ),
               Center(
                 child: RichText(
@@ -147,16 +151,17 @@ class UserSignUpScreen extends StatelessWidget {
                           color: Colors.black87,
                         ),
                         children: [
-                      const TextSpan(text: "Already have an account?"),
+                      const TextSpan(text: "Don't have an account?"),
                       TextSpan(
-                          text: "Login",
+                          text: "Signup",
                           style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               decoration: TextDecoration.underline),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => UserLogin(),
+                              Navigator.of(context)
+                                  .pushReplacement(MaterialPageRoute(
+                                builder: (context) => UserSignUpEmailScreen(),
                               ));
                             })
                     ])),

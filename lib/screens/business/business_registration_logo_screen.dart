@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class BusinessRegistrationLogoScreen extends StatefulWidget {
   const BusinessRegistrationLogoScreen({super.key});
@@ -10,6 +13,18 @@ class BusinessRegistrationLogoScreen extends StatefulWidget {
 
 class _BusinessRegistrationLogoScreenState
     extends State<BusinessRegistrationLogoScreen> {
+  File? _image; // To hold the image
+  final ImagePicker _picker = ImagePicker();
+
+  Future<void> _pickImageFromGallery() async {
+    final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      setState(() {
+        _image = File(pickedFile.path);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,18 +56,31 @@ class _BusinessRegistrationLogoScreenState
             SizedBox(
               height: 50,
             ),
-            Center(
-              child: Container(
-                height: 180,
-                width: 180,
-                decoration: BoxDecoration(
-                    color: Color.fromRGBO(217, 217, 217, 1),
-                    shape: BoxShape.circle,
-                    border: Border.all(color: Colors.black)),
-                child: Icon(
-                  Icons.add,
-                  size: 40,
-                  color: Colors.grey[500],
+            GestureDetector(
+              onTap: () async {
+                await _pickImageFromGallery();
+              },
+              child: Center(
+                child: Container(
+                  height: 180,
+                  width: 180,
+                  decoration: BoxDecoration(
+                      color: _image != null
+                          ? null
+                          : Color.fromRGBO(217, 217, 217, 1),
+                      shape: BoxShape.circle,
+                      image: _image != null
+                          ? DecorationImage(
+                              image: FileImage(_image!), fit: BoxFit.cover)
+                          : null,
+                      border: Border.all(color: Colors.black)),
+                  child: _image != null
+                      ? null
+                      : Icon(
+                          Icons.add,
+                          size: 40,
+                          color: Colors.grey[500],
+                        ),
                 ),
               ),
             ),
@@ -61,7 +89,9 @@ class _BusinessRegistrationLogoScreenState
             ),
             Center(
               child: ElevatedButton.icon(
-                onPressed: () {},
+                onPressed: () async {
+                  await _pickImageFromGallery();
+                },
                 icon: const Icon(Icons.attach_file),
                 label: const Text('Upload Image'),
                 iconAlignment: IconAlignment.end,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'screens/splash_screen.dart';
+import 'screens/common/splash_screen.dart';
 
 void main() {
   runApp(const ReferralApp());

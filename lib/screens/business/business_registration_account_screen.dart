@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:referral_app/screens/business_registration_details_screen.dart';
+import 'package:referral_app/screens/business/business_registration_details_screen.dart';
 
 class BusinessRegistrationAccountScreen extends StatelessWidget {
   const BusinessRegistrationAccountScreen({super.key});

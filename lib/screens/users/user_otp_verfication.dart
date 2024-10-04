@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:referral_app/screens/user_profile_setup.dart';
+import 'package:referral_app/screens/users/user_profile_setup.dart';
 
 class UserOtpVerificationScreen extends StatelessWidget {
   const UserOtpVerificationScreen({super.key});
