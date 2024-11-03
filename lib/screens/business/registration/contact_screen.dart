@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:referral_app/screens/business/business_registration_details_screen.dart';
+import 'package:referral_app/screens/business/registration/logo_screen.dart';
 
-class BusinessRegistrationAccountScreen extends StatelessWidget {
-  const BusinessRegistrationAccountScreen({super.key});
+class BusinessRegistrationContactScreen extends StatelessWidget {
+  const BusinessRegistrationContactScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class BusinessRegistrationAccountScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Account Details',
+              'Contact Details',
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.w500,
@@ -35,7 +35,7 @@ class BusinessRegistrationAccountScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Enter Email',
+                    'Business Email',
                     style: TextStyle(fontSize: 14),
                   ),
                   SizedBox(
@@ -58,17 +58,16 @@ class BusinessRegistrationAccountScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Enter Password',
+                    'Business Contact Number *',
                     style: TextStyle(fontSize: 14),
                   ),
                   SizedBox(
                     height: 5,
                   ),
                   TextFormField(
-                    obscureText: true,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(), isDense: true),
-                    keyboardType: TextInputType.visiblePassword,
+                    keyboardType: TextInputType.phone,
                   )
                 ],
               ),
@@ -82,17 +81,16 @@ class BusinessRegistrationAccountScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Repeat Password',
+                    'Alternate Contact Number',
                     style: TextStyle(fontSize: 14),
                   ),
                   SizedBox(
                     height: 5,
                   ),
                   TextFormField(
-                    obscureText: true,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(), isDense: true),
-                    keyboardType: TextInputType.visiblePassword,
+                    keyboardType: TextInputType.phone,
                   )
                 ],
               ),
@@ -107,7 +105,7 @@ class BusinessRegistrationAccountScreen extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                              BusinessRegistrationDetailsScreen()));
+                              BusinessRegistrationLogoScreen()));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,

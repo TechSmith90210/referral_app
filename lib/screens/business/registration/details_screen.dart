@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:referral_app/screens/business/business_registration_contact_screen.dart';
+import 'package:referral_app/screens/business/registration/contact_screen.dart';
 
 enum Categories {
   entertainment('Entertainment', 'entertainment'),

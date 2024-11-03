@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:referral_app/screens/users/user_get_started_screen.dart';
-import '../business/business_get_started_screen.dart';
+import '../business/get_started_screen.dart';
 
 class ChooseStartscreen extends StatelessWidget {
   const ChooseStartscreen({super.key});

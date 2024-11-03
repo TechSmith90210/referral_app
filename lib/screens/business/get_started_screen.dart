@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:referral_app/screens/business/business_login_screen.dart';
-import 'package:referral_app/screens/business/business_registration_account_screen.dart';
+import 'package:referral_app/screens/business/login_screen.dart';
+import 'package:referral_app/screens/business/registration/account_screen.dart';
 
 class BusinessGetStartedScreen extends StatelessWidget {
   const BusinessGetStartedScreen({super.key});

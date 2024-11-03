@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:referral_app/screens/business/business_registration_account_screen.dart';
+import 'package:referral_app/screens/business/main/home_screen.dart';
+import 'package:referral_app/screens/business/registration/account_screen.dart';
 
 class BusinessLoginScreen extends StatelessWidget {
   const BusinessLoginScreen({super.key});
@@ -100,7 +101,13 @@ class BusinessLoginScreen extends StatelessWidget {
             ),
             Center(
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomeScreen(),
+                      ));
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
                   shape: RoundedRectangleBorder(
