@@ -6,6 +6,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white70,
       appBar: AppBar(
         backgroundColor: Colors.blue,
         title: const Text(
@@ -36,178 +37,148 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Column(
+      body: ListView(
+        padding: const EdgeInsets.all(15.0),
+        children: [
+          const Text(
+            'Quick Actions',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Row(
-                children: const [
-                  Text(
-                    'Quick Actions',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ],
+              buildQuickActionButton(
+                label: 'Generate QR Code',
+                icon: Icons.qr_code,
+                onPressed: () {},
               ),
-              const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      padding: EdgeInsets.zero,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                    ),
-                    onPressed: () {},
-                    child: Container(
-                      height: 80,
-                      width: 150,
-                      alignment: Alignment.center,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Icon(Icons.qr_code, color: Colors.white),
-                          SizedBox(height: 5),
-                          Text(
-                            'Generate QR Code',
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 15),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      padding: EdgeInsets.zero,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                    ),
-                    onPressed: () {},
-                    child: Container(
-                      height: 80,
-                      width: 150,
-                      alignment: Alignment.center,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Icon(Icons.monetization_on_outlined,
-                              color: Colors.white),
-                          SizedBox(height: 5),
-                          Text(
-                            'Generate Sale',
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              Row(
-                children: const [
-                  Text(
-                    "Today's Sales",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  buildSalesCard(
-                    icon: Icons.currency_rupee_outlined,
-                    iconColor: Colors.blue,
-                    changeText: '+8%',
-                    changeColor: Colors.green,
-                    amount: '₹1500',
-                    label: 'Gross Sales',
-                  ),
-                  const SizedBox(width: 15),
-                  buildSalesCard(
-                    icon: Icons.inventory_2_outlined,
-                    iconColor: Colors.green,
-                    changeText: '',
-                    changeColor: Colors.transparent,
-                    amount: '30',
-                    label: 'Sold Items',
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              Row(
-                children: const [
-                  Text(
-                    'Recent Purchases',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  )
-                ],
-              ),
-              Container(
-                height: 600,
-                child: ListView.builder(
-                  itemCount: 4,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ListTile(
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(color: Colors.black),
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        dense: true,
-                        onTap: () {},
-                        tileColor: Colors.white,
-                        title: const Text(
-                          'John Doe',
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-                        ),
-                        subtitle: const Text(
-                          '23 Aug 8:00 PM',
-                          style: TextStyle(
-                            fontSize: 11,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.grey,
-                          ),
-                        ),
-                        leading: const CircleAvatar(
-                          radius: 13,
-                          backgroundColor: Colors.grey,
-                        ),
-                        trailing: const Text(
-                          '+300 pts',
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.green,
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                ),
+              const SizedBox(width: 15),
+              buildQuickActionButton(
+                label: 'Generate Sale',
+                icon: Icons.monetization_on_outlined,
+                onPressed: () {},
               ),
             ],
           ),
+          const SizedBox(height: 20),
+          const Text(
+            "Today's Sales",
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              buildSalesCard(
+                icon: Icons.currency_rupee_outlined,
+                iconColor: Colors.blue,
+                changeText: '+8%',
+                changeColor: Colors.green,
+                amount: '₹1500',
+                label: 'Gross Sales',
+              ),
+              const SizedBox(width: 15),
+              buildSalesCard(
+                icon: Icons.inventory_2_outlined,
+                iconColor: Colors.green,
+                changeText: '',
+                changeColor: Colors.transparent,
+                amount: '30',
+                label: 'Sold Items',
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+          const Text(
+            'Recent Purchases',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 10),
+          ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: 3,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListTile(
+                  shape: RoundedRectangleBorder(
+                    side: const BorderSide(color: Colors.black),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  dense: true,
+                  onTap: () {},
+                  tileColor: Colors.white,
+                  title: const Text(
+                    'John Doe',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  subtitle: const Text(
+                    '23 Aug 8:00 PM',
+                    style: TextStyle(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black,
+                    ),
+                  ),
+                  leading: const CircleAvatar(
+                    radius: 13,
+                    backgroundColor: Colors.grey,
+                  ),
+                  trailing: const Text(
+                    '+300 pts',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green,
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildQuickActionButton({
+    required String label,
+    required IconData icon,
+    required VoidCallback onPressed,
+  }) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.blue,
+        padding: EdgeInsets.zero,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(5),
+        ),
+      ),
+      onPressed: onPressed,
+      child: Container(
+        height: 80,
+        width: 150,
+        alignment: Alignment.center,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, color: Colors.white),
+            const SizedBox(height: 5),
+            Text(
+              label,
+              style: const TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -226,7 +197,7 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         padding: EdgeInsets.zero,
         shape: RoundedRectangleBorder(
-          side: BorderSide(color: Colors.black45),
+          side: const BorderSide(color: Colors.black45),
           borderRadius: BorderRadius.circular(12),
         ),
       ),
@@ -279,7 +250,7 @@ class HomeScreen extends StatelessWidget {
                 Text(
                   label,
                   style: const TextStyle(
-                    color: Colors.grey,
+                    color: Colors.black,
                     fontSize: 13,
                     fontWeight: FontWeight.w600,
                   ),
