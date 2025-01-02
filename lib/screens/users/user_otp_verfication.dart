@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:referral_app/screens/users/user_profile_setup.dart';
+import 'package:referral_app/screens/users/user_navigation.dart';
 
 class UserOtpVerificationScreen extends StatelessWidget {
   const UserOtpVerificationScreen({super.key});
@@ -97,7 +97,7 @@ class UserOtpVerificationScreen extends StatelessWidget {
                   onPressed: () {
                     try {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => UserProfileSetup()));
+                          builder: (context) => UserNavigation()));
                     } catch (e) {
                       // ignore: avoid_print
                       print(e);
